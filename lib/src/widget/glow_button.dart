@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterglow/src/theme/glow_theme.dart';
-import 'package:flutterglow/src/theme/theme.dart';
+import '../theme/glow_theme.dart';
+import '../theme/theme.dart';
 
 class GlowButton extends StatelessWidget {
   final double width, height;

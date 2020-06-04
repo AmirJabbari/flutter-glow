@@ -1,4 +1,4 @@
-library flutterglow;
+library flutter_glow;
 
 /// A Calculator.
 class Calculator {

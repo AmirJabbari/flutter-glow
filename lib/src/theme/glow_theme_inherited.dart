@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterglow/src/theme/theme.dart';
-import 'package:flutterglow/src/theme/theme_handler.dart';
-import 'package:flutterglow/src/theme/glow_theme_type.dart';
+import 'theme.dart';
+import 'theme_handler.dart';
+import 'glow_theme_type.dart';
 
 class GlowThemeInherited extends InheritedWidget {
   const GlowThemeInherited({
