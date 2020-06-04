@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutterglow/src/theme/ingerited_glow_theme.dart';
-import 'package:flutterglow/src/theme/theme.dart';
-import 'package:flutterglow/src/theme/theme_handler.dart';
-import 'package:flutterglow/src/theme/glow_theme_type.dart';
+import 'glow_theme_inherited.dart';
+import 'theme.dart';
+import 'theme_handler.dart';
+import 'glow_theme_type.dart';
 
 export 'theme.dart';
 export 'theme_handler.dart';
 export 'glow_theme_type.dart';
-export 'ingerited_glow_theme.dart';
+export 'glow_theme_inherited.dart';
 
 class GlowTheme extends StatefulWidget {
   const GlowTheme({
