@@ -4,6 +4,11 @@ import 'package:flutterglow/src/theme/theme.dart';
 import 'package:flutterglow/src/theme/theme_handler.dart';
 import 'package:flutterglow/src/theme/glow_theme_type.dart';
 
+export 'theme.dart';
+export 'theme_handler.dart';
+export 'glow_theme_type.dart';
+export 'ingerited_glow_theme.dart';
+
 class GlowTheme extends StatefulWidget {
   const GlowTheme({
     Key key,
@@ -17,6 +22,28 @@ class GlowTheme extends StatefulWidget {
   final GlowThemeData lightTheme;
   final GlowThemeData darkTheme;
   final GlowThemeType themeType;
+
+  static GlowThemeInherited _inheritedThemeOf(BuildContext context) {
+    try {
+      return context.dependOnInheritedWidgetOfExactType<GlowThemeInherited>();
+    } catch (t) {
+      return null;
+    }
+  }
+
+  static GlowThemeData of(BuildContext context) {
+    try {
+      return _inheritedThemeOf(context).current;
+    } catch (t) {
+      return null;
+    }
+  }
+
+  static bool isUsingDark(BuildContext context) {
+    return _inheritedThemeOf(context).isUsingDark;
+  }
+
+
 
   @override
   _GlowThemeState createState() => _GlowThemeState();

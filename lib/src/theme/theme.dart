@@ -47,23 +47,26 @@ class GlowThemeData {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is GlowThemeData &&
-              runtimeType == other.runtimeType &&
-              glowColor == other.glowColor &&
-              offset == other.offset &&
-              spreadRadius == other.spreadRadius &&
-              blurRadius == other.blurRadius;
+      other is GlowThemeData &&
+          runtimeType == other.runtimeType &&
+          glowColor == other.glowColor &&
+          offset == other.offset &&
+          spreadRadius == other.spreadRadius &&
+          blurRadius == other.blurRadius;
 
   @override
   int get hashCode =>
-      glowColor.hashCode ^
-      offset.hashCode ^
-      spreadRadius.hashCode ^
-      blurRadius.hashCode;
+      glowColor.hashCode ^ offset.hashCode ^ spreadRadius.hashCode ^ blurRadius.hashCode;
 
   @override
   String toString() {
     return 'GlowThemeData{glowColor: $glowColor, offset: $offset, spreadRadius: $spreadRadius, blurRadius: $blurRadius}';
   }
-
 }
+
+GlowThemeData kDefaultGlowTheme = GlowThemeData(
+  glowColor: Color(0x1e000000),
+  offset: Offset(0, 2),
+  blurRadius: 6.0,
+  spreadRadius: 0.0,
+);

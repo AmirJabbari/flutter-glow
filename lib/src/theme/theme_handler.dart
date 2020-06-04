@@ -1,8 +1,12 @@
 import 'dart:ui';
 
-import 'package:flutterglow/src/theme/theme.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutterglow/src/theme/glow_theme_type.dart';
+import 'theme.dart';
+import 'glow_theme_type.dart';
+
+export 'theme.dart';
+export 'glow_theme_type.dart';
+
 
 class GlowThemeHandler {
   GlowThemeHandler({
