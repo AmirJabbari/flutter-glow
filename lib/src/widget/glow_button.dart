@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_glow/src/widget/glow_container.dart';
 import '../theme/glow_theme.dart';
 import '../theme/theme.dart';
 
@@ -52,29 +53,21 @@ class GlowButton extends StatelessWidget {
     final glowTheme = GlowTheme.of(context);
     return Opacity(
       opacity: enable ? 1.0 : 0.4,
-      child: AnimatedContainer(
+      child: GlowContainer(
         height: height ?? buttonTheme.height,
         width: width ?? buttonTheme.minWidth,
-        duration: const Duration(milliseconds: 300),
-        decoration: BoxDecoration(
-          color: buttonColor,
-          borderRadius: borderRadius ?? BorderRadius.circular(4),
-          boxShadow: [
-            BoxShadow(
-              color:
-                  glowColor ?? glowTheme?.glowColor ?? buttonColor ?? kDefaultGlowTheme.glowColor,
-              offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset,
-              blurRadius: offset ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
-              spreadRadius: offset ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius,
-            ),
-          ],
-          border: border,
-        ),
+        color: buttonColor,
+        borderRadius: borderRadius ?? BorderRadius.circular(4),
+        glowColor: glowColor ?? glowTheme?.glowColor ?? buttonColor ?? kDefaultGlowTheme.glowColor,
+        offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset,
+        blurRadius: offset ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
+        spreadRadius: offset ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius,
+
+        border: border,
         child: Material(
           color: Colors.transparent,
           child: InkWell(
             borderRadius: borderRadius ?? BorderRadius.circular(4),
-            enableFeedback: false,
             splashColor: splashColor ?? theme.splashColor ?? Colors.transparent,
             onTap: onPressed,
             child: Container(
