@@ -7,6 +7,7 @@ class GlowButton extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final Color color;
   final Color disableColor;
+  final Color splashColor;
   final bool isDisable;
   final Widget child;
   final BorderRadiusGeometry borderRadius;
@@ -28,6 +29,7 @@ class GlowButton extends StatelessWidget {
     this.color,
     this.disableColor,
     this.glowColor,
+    this.splashColor,
     this.borderRadius,
     this.border,
     this.isDisable = false,
@@ -45,6 +47,8 @@ class GlowButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final buttonTheme = Theme.of(context).buttonTheme;
 
+    final theme = Theme.of(context);
+
     final buttonColor = _buildButtonColor(context);
 
     final glowTheme = GlowTheme.of(context);
@@ -54,10 +58,11 @@ class GlowButton extends StatelessWidget {
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
           color: buttonColor,
-          borderRadius: borderRadius ?? BorderRadius.circular(24),
+          borderRadius: borderRadius ?? BorderRadius.circular(4),
           boxShadow: [
             BoxShadow(
-              color: glowColor ?? glowTheme.glowColor ?? buttonColor ?? kDefaultGlowTheme.glowColor,
+              color:
+                  glowColor ?? glowTheme?.glowColor ?? buttonColor ?? kDefaultGlowTheme.glowColor,
               offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset,
               blurRadius: offset ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
               spreadRadius: offset ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius,
@@ -68,8 +73,9 @@ class GlowButton extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            borderRadius: borderRadius ?? BorderRadius.circular(24),
+            borderRadius: borderRadius ?? BorderRadius.circular(4),
             enableFeedback: false,
+            splashColor: splashColor ?? theme.splashColor ?? Colors.transparent,
             onTap: onPressed,
             child: Container(
               height: height ?? buttonTheme.height,
