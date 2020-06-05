@@ -26,6 +26,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool checkboxSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +41,19 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             GlowButton(
               child: Text('test'),
-              onPressed: (){},
+              onPressed: () {},
             ),
+            SizedBox(height: 16),
+            GlowCheckbox(
+              value: checkboxSelected,
+              enable: true,
+              onChange: (bool value) {
+                setState(() {
+                  checkboxSelected = !checkboxSelected;
+                });
+              },
+            ),
+            SizedBox(height: 16),
           ],
         ),
       ),
