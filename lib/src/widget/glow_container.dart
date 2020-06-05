@@ -18,6 +18,8 @@ class GlowContainer extends StatelessWidget {
     this.offset,
     this.spreadRadius,
     this.blurRadius,
+    this.animationDuration,
+    this.animationCurve,
     this.child,
   }) : super(key: key);
 
@@ -31,6 +33,10 @@ class GlowContainer extends StatelessWidget {
   final EdgeInsetsGeometry margin;
   final BoxShape shape;
   final Widget child;
+
+  //animation
+  final Duration animationDuration;
+  final Curve animationCurve;
 
   //glow properties
   final Color glowColor;
@@ -47,7 +53,8 @@ class GlowContainer extends StatelessWidget {
       padding: padding,
       margin: margin,
       alignment: alignment,
-      duration: const Duration(milliseconds: 300),
+      duration: animationDuration ?? const Duration(milliseconds: 300),
+      curve: animationCurve,
       decoration: BoxDecoration(
         color: color,
         borderRadius: borderRadius,
