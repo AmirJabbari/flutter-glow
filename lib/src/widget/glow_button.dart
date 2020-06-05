@@ -8,7 +8,6 @@ class GlowButton extends StatelessWidget {
   final Color color;
   final Color disableColor;
   final Color splashColor;
-  final bool isDisable;
   final Widget child;
   final BorderRadiusGeometry borderRadius;
   final BoxBorder border;
@@ -32,14 +31,13 @@ class GlowButton extends StatelessWidget {
     this.splashColor,
     this.borderRadius,
     this.border,
-    this.isDisable = false,
     this.offset,
     this.spreadRadius,
     this.blurRadius,
     @required this.onPressed,
   }) : super(key: key);
 
-  bool get enable => (onPressed != null && !isDisable);
+  bool get enable => onPressed != null;
 
   bool get disable => !enable;
 
@@ -55,6 +53,8 @@ class GlowButton extends StatelessWidget {
     return Opacity(
       opacity: enable ? 1.0 : 0.4,
       child: AnimatedContainer(
+        height: height ?? buttonTheme.height,
+        width: width ?? buttonTheme.minWidth,
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
           color: buttonColor,
@@ -78,13 +78,11 @@ class GlowButton extends StatelessWidget {
             splashColor: splashColor ?? theme.splashColor ?? Colors.transparent,
             onTap: onPressed,
             child: Container(
-              height: height ?? buttonTheme.height,
-              width: width ?? buttonTheme.minWidth,
               alignment: Alignment.center,
               padding: padding ?? buttonTheme.padding,
               child: DefaultTextStyle(
-                child: child,
                 style: Theme.of(context).textTheme.button,
+                child: child,
               ),
             ),
           ),

@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: GlowButton(
           child: Text('test'),
-          onPressed: () {},
+          onPressed: (){},
         ),
       ),
     );
