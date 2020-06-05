@@ -19,7 +19,7 @@ class GlowContainer extends StatelessWidget {
     this.spreadRadius,
     this.blurRadius,
     this.animationDuration,
-    this.animationCurve,
+    this.animationCurve = Curves.linear,
     this.child,
   }) : super(key: key);
 
@@ -54,7 +54,7 @@ class GlowContainer extends StatelessWidget {
       margin: margin,
       alignment: alignment,
       duration: animationDuration ?? const Duration(milliseconds: 300),
-      curve: animationCurve,
+      curve: animationCurve ?? Curves.linear,
       decoration: BoxDecoration(
         color: color,
         borderRadius: borderRadius,
