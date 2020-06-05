@@ -4,22 +4,6 @@ import '../theme/glow_theme.dart';
 import '../theme/theme.dart';
 
 class GlowButton extends StatelessWidget {
-  final double width, height;
-  final EdgeInsetsGeometry padding;
-  final Color color;
-  final Color disableColor;
-  final Color splashColor;
-  final Widget child;
-  final BorderRadiusGeometry borderRadius;
-  final BoxBorder border;
-  final VoidCallback onPressed;
-
-  //glow properties
-  final Color glowColor;
-  final Offset offset;
-  final double spreadRadius;
-  final double blurRadius;
-
   const GlowButton({
     Key key,
     @required this.child,
@@ -37,6 +21,22 @@ class GlowButton extends StatelessWidget {
     this.blurRadius,
     @required this.onPressed,
   }) : super(key: key);
+
+  final double width, height;
+  final EdgeInsetsGeometry padding;
+  final Color color;
+  final Color disableColor;
+  final Color splashColor;
+  final Widget child;
+  final BorderRadiusGeometry borderRadius;
+  final BoxBorder border;
+  final VoidCallback onPressed;
+
+  //glow properties
+  final Color glowColor;
+  final Offset offset;
+  final double spreadRadius;
+  final double blurRadius;
 
   bool get enable => onPressed != null;
 
@@ -62,7 +62,6 @@ class GlowButton extends StatelessWidget {
         offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset,
         blurRadius: offset ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
         spreadRadius: offset ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius,
-
         border: border,
         child: Material(
           color: Colors.transparent,

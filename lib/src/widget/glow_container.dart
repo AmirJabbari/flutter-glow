@@ -50,7 +50,7 @@ class GlowContainer extends StatelessWidget {
       duration: const Duration(milliseconds: 300),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: borderRadius ?? BorderRadius.circular(0),
+        borderRadius: borderRadius,
         boxShadow: [
           BoxShadow(
             color: glowColor ?? glowTheme?.glowColor ?? kDefaultGlowTheme.glowColor,
