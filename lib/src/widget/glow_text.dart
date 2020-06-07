@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../flutter_glow.dart';
@@ -64,6 +65,7 @@ class GlowText extends Text {
     final glowTheme = GlowTheme.of(context); // getting glow theme
     final DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(context);
     TextStyle effectiveTextStyle = style;
+    if (style == null || style.inherit) effectiveTextStyle = defaultTextStyle.style.merge(style);
     if (style == null || style.inherit) effectiveTextStyle = defaultTextStyle.style.merge(style);
     if (MediaQuery.boldTextOverride(context))
       effectiveTextStyle = effectiveTextStyle.merge(const TextStyle(fontWeight: FontWeight.bold));

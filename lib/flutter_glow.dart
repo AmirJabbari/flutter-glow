@@ -9,3 +9,4 @@ export 'package:flutter_glow/src/widget/glow_container.dart';
 export 'package:flutter_glow/src/widget/glow_checkbox.dart';
 export 'package:flutter_glow/src/widget/glow_icon.dart';
 export 'package:flutter_glow/src/widget/glow_text.dart';
+export 'package:flutter_glow/src/widget/glow_switch.dart';
