@@ -59,6 +59,14 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.blue,
               size: 64,
             ),
+            SizedBox(height: 16),
+            GlowText(
+              'Glow Text',
+              style: TextStyle(
+                fontSize: 40,
+                color: Colors.blue
+              ),
+            ),
           ],
         ),
       ),
