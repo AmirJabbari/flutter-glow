@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
@@ -29,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool checkboxSelected = false;
   bool switchSelected = false;
+  bool radioSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +68,34 @@ class _MyHomePageState extends State<MyHomePage> {
             GlowText(
               'Glow Text',
               style: TextStyle(fontSize: 40, color: Colors.blue),
+            ),
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: <Widget>[
+                GlowRadio<bool>(
+                  value: true,
+                  groupValue: radioSelected,
+                  onChange: (value) {
+                    setState(() {
+                      radioSelected = value;
+                      log(value.toString());
+                    });
+                  },
+                ),
+                SizedBox(width: 32),
+                GlowRadio<bool>(
+                  value: false,
+                  groupValue: radioSelected,
+                  onChange: (value) {
+                    setState(() {
+                      radioSelected = value;
+                      log(value.toString());
+                    });
+                  },
+                ),
+              ],
             ),
             SizedBox(height: 16),
             GlowSwitch(
