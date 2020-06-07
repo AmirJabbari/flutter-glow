@@ -51,31 +51,28 @@ class GlowButton extends StatelessWidget {
     final buttonColor = _buildButtonColor(context);
 
     final glowTheme = GlowTheme.of(context);
-    return Opacity(
-      opacity: enable ? 1.0 : 0.4,
-      child: GlowContainer(
-        height: height ?? buttonTheme.height,
-        width: width ?? buttonTheme.minWidth,
-        color: buttonColor,
-        borderRadius: borderRadius ?? BorderRadius.circular(4),
-        glowColor: glowColor ?? glowTheme?.glowColor ?? buttonColor ?? kDefaultGlowTheme.glowColor,
-        offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset,
-        blurRadius: offset ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
-        spreadRadius: offset ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius,
-        border: border,
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            borderRadius: borderRadius ?? BorderRadius.circular(4),
-            splashColor: splashColor ?? theme.splashColor ?? Colors.transparent,
-            onTap: onPressed,
-            child: Container(
-              alignment: Alignment.center,
-              padding: padding ?? buttonTheme.padding,
-              child: DefaultTextStyle(
-                style: Theme.of(context).textTheme.button,
-                child: child,
-              ),
+    return GlowContainer(
+      height: height ?? buttonTheme.height,
+      width: width ?? buttonTheme.minWidth,
+      color: buttonColor,
+      borderRadius: borderRadius ?? BorderRadius.circular(4),
+      glowColor: glowColor ?? glowTheme?.glowColor ?? buttonColor ?? kDefaultGlowTheme.glowColor,
+      offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset,
+      blurRadius: blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
+      spreadRadius: spreadRadius ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius,
+      border: border,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: borderRadius ?? BorderRadius.circular(4),
+          splashColor: splashColor ?? theme.splashColor ?? Colors.transparent,
+          onTap: onPressed,
+          child: Container(
+            alignment: Alignment.center,
+            padding: padding ?? buttonTheme.padding,
+            child: DefaultTextStyle(
+              style: Theme.of(context).textTheme.button,
+              child: child,
             ),
           ),
         ),
@@ -86,6 +83,6 @@ class GlowButton extends StatelessWidget {
   Color _buildButtonColor(BuildContext context) {
     return enable
         ? color ?? Theme.of(context).buttonTheme.colorScheme.primary
-        : disableColor ?? Theme.of(context).buttonTheme.colorScheme.primary;
+        : disableColor ?? Theme.of(context).buttonTheme.colorScheme.primary.withOpacity(0.4);
   }
 }
