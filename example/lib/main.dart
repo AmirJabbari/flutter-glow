@@ -54,6 +54,11 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             SizedBox(height: 16),
+            GlowIcon(
+              Icons.access_alarm,
+              color: Colors.blue,
+              size: 64,
+            ),
           ],
         ),
       ),
