@@ -68,18 +68,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(height: 16),
             GlowSwitch(
-              onChanged: (value){
-
+              onChanged: (value) {
+                setState(() {
+                  switchSelected = value;
+                });
               },
               value: switchSelected,
-              activeColor: Colors.red,
+              activeColor: Colors.blue,
             ),
-            Switch(
-              onChanged: (bool value) {
-              },
-              value: switchSelected,
-              
-            )
           ],
         ),
       ),
