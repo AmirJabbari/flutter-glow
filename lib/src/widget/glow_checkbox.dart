@@ -21,6 +21,7 @@ class GlowCheckbox extends StatelessWidget {
     this.border,
     this.duration,
     this.curve,
+    this.checkIcon,
   })  : assert(value != null),
         assert(onChange != null),
         super(key: key);
@@ -36,6 +37,8 @@ class GlowCheckbox extends StatelessWidget {
   final Color color;
   final Color checkColor;
   final Color disableColor;
+
+  final IconData checkIcon;
 
   //animation
   final Duration duration;
@@ -74,7 +77,11 @@ class GlowCheckbox extends StatelessWidget {
         animationDuration: duration ?? const Duration(milliseconds: 200),
         animationCurve: curve,
         child: value
-            ? Icon(Icons.check, color: checkColor ?? theme.colorScheme.onPrimary, size: 18)
+            ? Icon(
+                checkIcon ?? Icons.check,
+                color: checkColor ?? theme.colorScheme.onPrimary,
+                size: 18,
+              )
             : SizedBox.shrink(),
       ),
     );
@@ -82,8 +89,8 @@ class GlowCheckbox extends StatelessWidget {
 
   Color buildGlowColor(GlowThemeData glowTheme, Color checkBoxColor) {
     return value && enable
-          ? glowColor ?? glowTheme?.glowColor ?? checkBoxColor ?? kDefaultGlowTheme.glowColor
-          : Colors.transparent;
+        ? glowColor ?? glowTheme?.glowColor ?? checkBoxColor ?? kDefaultGlowTheme.glowColor
+        : Colors.transparent;
   }
 
   Color _buildCheckboxColor(BuildContext context) {
@@ -91,5 +98,4 @@ class GlowCheckbox extends StatelessWidget {
         ? color ?? Theme.of(context).toggleableActiveColor
         : disableColor ?? Theme.of(context).disabledColor;
   }
-
 }
