@@ -32,6 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   bool checkboxSelected = false;
   bool switchSelected = false;
   bool radioSelected = false;
+  bool iconSelected = false;
+
+  double sliderValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +62,20 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             SizedBox(height: 16),
-            GlowIcon(
-              Icons.access_alarm,
-              color: Colors.blue,
-              size: 64,
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  iconSelected = !iconSelected;
+                });
+              },
+
+              child: GlowIcon(
+                iconSelected ? Icons.favorite : Icons.favorite_border,
+                color: Colors.blue,
+                glowColor: iconSelected ? Colors.blue : Colors.transparent,
+                size: 64,
+                blurRadius: 9,
+              ),
             ),
             SizedBox(height: 16),
             GlowText(
@@ -72,7 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-
               children: <Widget>[
                 GlowRadio<bool>(
                   value: true,
@@ -107,6 +119,11 @@ class _MyHomePageState extends State<MyHomePage> {
               value: switchSelected,
               activeColor: Colors.blue,
             ),
+            SizedBox(height: 16),
+            GlowLineProgress(
+              blurRadius: 12,
+              glowColor: Colors.red,
+            )
           ],
         ),
       ),
