@@ -58,3 +58,7 @@ import 'package:flutter_glow/flutter_glow.dart';
 </tbody>
 </table>
 
+## Glow Theme
+you can create your own GlowTheme. Since GlowTheme is an InheritedWidget you can use it to Handle 
+whole app changes or use it for tiny scope.
+
