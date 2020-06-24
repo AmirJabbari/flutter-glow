@@ -1,3 +1,15 @@
-## [0.0.1] - TODO: Add release date.
+## [0.1.0] - First Implementation of package.
 
-* TODO: Describe initial release.
+
+* Components:
+	* GlowContainer
+	* GlowButton
+	* GlowIcon
+	* GlowText
+	* GlowCheckbox
+	* GlowRadio
+	* GlowSwitch
+* Theme and Layouts:
+	* GlowThemeData
+	* GlowTheme
+	* GlowThemeType
