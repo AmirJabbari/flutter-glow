@@ -1,7 +1,8 @@
 name: flutter_glow
-description: A new Flutter package.
-version: 0.0.1
-author: pzahedi1995@gmail.com
+description: complete and easy to use flutter glow ui kit.
+version: 0.1.0
+repository: https://github.com/payam-zahedi/flutter-glow
+issue_tracker: https://github.com/payam-zahedi/flutter-glow/issues
 homepage: https://github.com/payam-zahedi/flutter-glow
 
 environment:
