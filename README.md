@@ -4,7 +4,7 @@
 
 ##### complete and easy to use flutter glow ui kit that help you to create and use glow widgets.
 
-##installation
+## installation
 for install this package add package to your pubspec.yaml file:
 ```yaml
 dependencies:
