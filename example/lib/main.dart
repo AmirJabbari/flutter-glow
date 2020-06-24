@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 
+const flutterColor = Color(0xFF40D0FD);
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -48,20 +50,22 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             GlowButton(
-              child: Text('test'),
+              child: Text('Glow'),
               onPressed: () {},
+              color: flutterColor,
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 32),
             GlowCheckbox(
               value: checkboxSelected,
               enable: true,
+              color: flutterColor,
               onChange: (bool value) {
                 setState(() {
                   checkboxSelected = !checkboxSelected;
                 });
               },
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 32),
             GestureDetector(
               onTap: () {
                 setState(() {
@@ -70,25 +74,26 @@ class _MyHomePageState extends State<MyHomePage> {
               },
 
               child: GlowIcon(
-                iconSelected ? Icons.favorite : Icons.favorite_border,
-                color: Colors.blue,
-                glowColor: iconSelected ? Colors.blue : Colors.transparent,
+                iconSelected ? Icons.wb_cloudy : Icons.cloud_queue,
+                color: flutterColor,
+                glowColor: iconSelected ? flutterColor : Colors.transparent,
                 size: 64,
                 blurRadius: 9,
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 32),
             GlowText(
               'Glow Text',
-              style: TextStyle(fontSize: 40, color: Colors.blue),
+              style: TextStyle(fontSize: 40, color: flutterColor),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 32),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 GlowRadio<bool>(
                   value: true,
                   groupValue: radioSelected,
+                  color: flutterColor,
                   onChange: (value) {
                     setState(() {
                       radioSelected = value;
@@ -99,6 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 32),
                 GlowRadio<bool>(
                   value: false,
+                  color: flutterColor,
                   groupValue: radioSelected,
                   onChange: (value) {
                     setState(() {
@@ -109,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 32),
             GlowSwitch(
               onChanged: (value) {
                 setState(() {
@@ -117,12 +123,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
               value: switchSelected,
-              activeColor: Colors.blue,
+              activeColor: flutterColor.withOpacity(0.6),
+              blurRadius: 4,
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 32),
             GlowLineProgress(
               blurRadius: 12,
-              glowColor: Colors.red,
+              glowColor: flutterColor,
             )
           ],
         ),
