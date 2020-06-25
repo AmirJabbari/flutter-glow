@@ -1,5 +1,9 @@
-## [0.1.0] - First Implementation of package.
+## [0.1.1] - Formatting and Refactoring code.
 
+* all package files has been formatted
+* packaged description updated
+
+## [0.1.0] - First Implementation of package.
 
 * Components:
 	* GlowContainer

@@ -1,6 +1,7 @@
 name: flutter_glow
-description: complete and easy to use flutter glow ui kit.
-version: 0.1.0
+description: complete and easy to use flutter glow ui kit that help you to create and use glow widgets.
+  also you can create your own GlowTheme. Since GlowTheme is an InheritedWidget you can use it to Handle whole app changes or use it for tiny scope.
+version: 0.1.1
 repository: https://github.com/payam-zahedi/flutter-glow
 issue_tracker: https://github.com/payam-zahedi/flutter-glow/issues
 homepage: https://github.com/payam-zahedi/flutter-glow
