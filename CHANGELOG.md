@@ -1,3 +1,7 @@
+## [0.1.2] - Formatting and Refactoring code.
+
+* packaged description updated
+
 ## [0.1.1] - Formatting and Refactoring code.
 
 * all package files has been formatted
