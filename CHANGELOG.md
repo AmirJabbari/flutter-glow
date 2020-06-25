@@ -1,5 +1,4 @@
-## [0.1.2] - Formatting and Refactoring code.
-
+## [0.1.2] - Description changed.
 * packaged description updated
 
 ## [0.1.1] - Formatting and Refactoring code.
