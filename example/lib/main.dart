@@ -72,7 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   iconSelected = !iconSelected;
                 });
               },
-
               child: GlowIcon(
                 iconSelected ? Icons.wb_cloudy : Icons.cloud_queue,
                 color: flutterColor,

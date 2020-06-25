@@ -7,7 +7,6 @@ import 'glow_theme_type.dart';
 export 'theme.dart';
 export 'glow_theme_type.dart';
 
-
 class GlowThemeHandler {
   GlowThemeHandler({
     @required this.theme,

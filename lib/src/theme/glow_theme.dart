@@ -43,8 +43,6 @@ class GlowTheme extends StatefulWidget {
     return _inheritedThemeOf(context).isUsingDark;
   }
 
-
-
   @override
   _GlowThemeState createState() => _GlowThemeState();
 }
