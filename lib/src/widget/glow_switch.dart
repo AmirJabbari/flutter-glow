@@ -5,9 +5,9 @@ import 'package:flutter_glow/flutter_glow.dart';
 
 class GlowSwitch extends StatefulWidget {
   const GlowSwitch({
-    Key key,
-    @required this.value,
-    @required this.onChanged,
+    Key? key,
+    required this.value,
+    required this.onChanged,
     this.activeColor,
     this.dragStartBehavior,
     this.glowColor,
@@ -18,14 +18,14 @@ class GlowSwitch extends StatefulWidget {
 
   final bool value;
   final ValueChanged<bool> onChanged;
-  final Color activeColor;
-  final DragStartBehavior dragStartBehavior;
+  final Color? activeColor;
+  final DragStartBehavior? dragStartBehavior;
 
   //glow properties
-  final Color glowColor;
-  final Offset offset;
-  final double spreadRadius;
-  final double blurRadius;
+  final Color? glowColor;
+  final Offset? offset;
+  final double? spreadRadius;
+  final double? blurRadius;
 
   bool get enable => onChanged != null;
 
@@ -43,7 +43,7 @@ class _GlowSwitchState extends State<GlowSwitch> {
     return GlowContainer(
       padding: EdgeInsets.all(0),
       borderRadius: BorderRadius.circular(100),
-      glowColor: widget.enable ? color : color.withOpacity(0.4),
+      glowColor: widget.enable ? color : color!.withOpacity(0.4),
       offset: widget.offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset,
       blurRadius: widget.blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
       spreadRadius:
@@ -57,7 +57,7 @@ class _GlowSwitchState extends State<GlowSwitch> {
     );
   }
 
-  Color _buildGlowColor(BuildContext context) {
+  Color? _buildGlowColor(BuildContext context) {
     final glowTheme = GlowTheme.of(context);
     if (widget.value) {
       return widget.glowColor ??

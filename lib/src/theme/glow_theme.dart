@@ -11,19 +11,19 @@ export 'glow_theme_inherited.dart';
 
 class GlowTheme extends StatefulWidget {
   const GlowTheme({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.lightTheme,
     this.darkTheme,
     this.themeType,
   }) : super(key: key);
 
   final Widget child;
-  final GlowThemeData lightTheme;
-  final GlowThemeData darkTheme;
-  final GlowThemeType themeType;
+  final GlowThemeData? lightTheme;
+  final GlowThemeData? darkTheme;
+  final GlowThemeType? themeType;
 
-  static GlowThemeInherited _inheritedThemeOf(BuildContext context) {
+  static GlowThemeInherited? _inheritedThemeOf(BuildContext context) {
     try {
       return context.dependOnInheritedWidgetOfExactType<GlowThemeInherited>();
     } catch (t) {
@@ -31,16 +31,16 @@ class GlowTheme extends StatefulWidget {
     }
   }
 
-  static GlowThemeData of(BuildContext context) {
+  static GlowThemeData? of(BuildContext context) {
     try {
-      return _inheritedThemeOf(context).current;
+      return _inheritedThemeOf(context)!.current;
     } catch (t) {
       return null;
     }
   }
 
   static bool isUsingDark(BuildContext context) {
-    return _inheritedThemeOf(context).isUsingDark;
+    return _inheritedThemeOf(context)!.isUsingDark;
   }
 
   @override
@@ -48,7 +48,7 @@ class GlowTheme extends StatefulWidget {
 }
 
 class _GlowThemeState extends State<GlowTheme> {
-  GlowThemeHandler _themeHandler;
+  GlowThemeHandler? _themeHandler;
 
   @override
   void initState() {
