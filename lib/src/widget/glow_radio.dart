@@ -55,7 +55,7 @@ class GlowRadio<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
 
     final checkBoxColor = _buildCheckboxColor(context);
 

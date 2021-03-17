@@ -25,30 +25,43 @@ class GlowText extends Text {
   })  : textSpan = null,
         super(data, key: key);
 
+  @override
   final String data;
 
+  @override
   final InlineSpan? textSpan;
 
+  @override
   final TextStyle? style;
 
+  @override
   final StrutStyle? strutStyle;
 
+  @override
   final TextAlign? textAlign;
 
+  @override
   final TextDirection? textDirection;
 
+  @override
   final Locale? locale;
 
+  @override
   final bool? softWrap;
 
+  @override
   final TextOverflow? overflow;
 
+  @override
   final double? textScaleFactor;
 
+  @override
   final int? maxLines;
 
+  @override
   final String? semanticsLabel;
 
+  @override
   final TextWidthBasis? textWidthBasis;
 
   //glow properties
@@ -59,20 +72,19 @@ class GlowText extends Text {
   @override
   Widget build(BuildContext context) {
     final glowTheme = GlowTheme.of(context); // getting glow theme
-    final DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(context);
-    TextStyle? effectiveTextStyle = style;
+    final defaultTextStyle = DefaultTextStyle.of(context);
+    var effectiveTextStyle = style;
     if (style == null || style!.inherit) effectiveTextStyle = defaultTextStyle.style.merge(style);
     if (style == null || style!.inherit) effectiveTextStyle = defaultTextStyle.style.merge(style);
-    if (MediaQuery.boldTextOverride(context))
+    if (MediaQuery.boldTextOverride(context)) {
       effectiveTextStyle = effectiveTextStyle!.merge(const TextStyle(fontWeight: FontWeight.bold));
-
+    }
     final glowColorValue = glowColor ??
         glowTheme?.glowColor ??
         effectiveTextStyle!.color ??
         kDefaultGlowTheme.glowColor!;
     final glowOffset = offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset!;
-    final double glowBlurRadius =
-        blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!;
+    final glowBlurRadius = blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!;
     effectiveTextStyle = effectiveTextStyle!.merge(
       TextStyle(
         shadows: [

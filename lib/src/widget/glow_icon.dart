@@ -16,14 +16,19 @@ class GlowIcon extends Icon {
     this.blurRadius,
   }) : super(icon, key: key);
 
+  @override
   final IconData? icon;
 
+  @override
   final double? size;
 
+  @override
   final Color? color;
 
+  @override
   final String? semanticLabel;
 
+  @override
   final TextDirection? textDirection;
 
   //glow properties
@@ -34,11 +39,11 @@ class GlowIcon extends Icon {
   @override
   Widget build(BuildContext context) {
     assert(this.textDirection != null || debugCheckHasDirectionality(context));
-    final TextDirection textDirection = this.textDirection ?? Directionality.of(context);
+    final textDirection = this.textDirection ?? Directionality.of(context);
 
-    final IconThemeData iconTheme = IconTheme.of(context);
+    final iconTheme = IconTheme.of(context);
 
-    final double? iconSize = size ?? iconTheme.size;
+    final iconSize = size ?? iconTheme.size;
 
     if (icon == null) {
       return Semantics(
@@ -51,11 +56,10 @@ class GlowIcon extends Icon {
       final glowColorValue =
           glowColor ?? glowTheme?.glowColor ?? color ?? kDefaultGlowTheme.glowColor!;
       final glowOffset = offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset!;
-      final double glowBlurRadius =
-          blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!;
+      final glowBlurRadius = blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!;
 
-      final double? iconOpacity = iconTheme.opacity;
-      Color? iconColor = color ?? iconTheme.color;
+      final iconOpacity = iconTheme.opacity;
+      var iconColor = color ?? iconTheme.color;
       if (iconOpacity != 1.0) iconColor = iconColor!.withOpacity(iconColor.opacity * iconOpacity!);
 
       Widget iconWidget = RichText(

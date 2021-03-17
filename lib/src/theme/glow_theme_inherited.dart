@@ -9,8 +9,7 @@ class GlowThemeInherited extends InheritedWidget {
     required Widget child,
     required this.value,
     required this.onChange,
-  })  :
-        super(key: key, child: child);
+  }) : super(key: key, child: child);
 
   final GlowThemeHandler? value;
 

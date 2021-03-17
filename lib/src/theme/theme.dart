@@ -38,10 +38,10 @@ class GlowThemeData {
     required GlowThemeData other,
   }) =>
       GlowThemeData(
-        glowColor: other.glowColor ?? this.glowColor,
-        offset: other.offset ?? this.offset,
-        spreadRadius: other.spreadRadius ?? this.spreadRadius,
-        blurRadius: other.blurRadius ?? this.blurRadius,
+        glowColor: other.glowColor ?? glowColor,
+        offset: other.offset ?? offset,
+        spreadRadius: other.spreadRadius ?? spreadRadius,
+        blurRadius: other.blurRadius ?? blurRadius,
       );
 
   @override

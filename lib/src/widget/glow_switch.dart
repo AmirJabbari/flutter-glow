@@ -64,7 +64,8 @@ class _GlowSwitchState extends State<GlowSwitch> {
           glowTheme?.glowColor ??
           widget.activeColor ??
           kDefaultGlowTheme.glowColor;
-    } else
+    } else {
       return Color(0x00000000);
+    }
   }
 }

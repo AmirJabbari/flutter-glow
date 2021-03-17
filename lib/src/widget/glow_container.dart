@@ -63,7 +63,8 @@ class GlowContainer extends StatelessWidget {
             color: glowColor ?? glowTheme?.glowColor ?? kDefaultGlowTheme.glowColor!,
             offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset!,
             blurRadius: blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!,
-            spreadRadius: spreadRadius ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius!,
+            spreadRadius:
+                spreadRadius ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius!,
           ),
         ],
         border: border,
