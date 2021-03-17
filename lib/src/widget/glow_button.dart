@@ -5,8 +5,8 @@ import '../theme/theme.dart';
 
 class GlowButton extends StatelessWidget {
   const GlowButton({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.width,
     this.height,
     this.padding,
@@ -19,24 +19,24 @@ class GlowButton extends StatelessWidget {
     this.offset,
     this.spreadRadius,
     this.blurRadius,
-    @required this.onPressed,
+    required this.onPressed,
   }) : super(key: key);
 
-  final double width, height;
-  final EdgeInsetsGeometry padding;
-  final Color color;
-  final Color disableColor;
-  final Color splashColor;
+  final double? width, height;
+  final EdgeInsetsGeometry? padding;
+  final Color? color;
+  final Color? disableColor;
+  final Color? splashColor;
   final Widget child;
-  final BorderRadiusGeometry borderRadius;
-  final BoxBorder border;
+  final BorderRadiusGeometry? borderRadius;
+  final BoxBorder? border;
   final VoidCallback onPressed;
 
   //glow properties
-  final Color glowColor;
-  final Offset offset;
-  final double spreadRadius;
-  final double blurRadius;
+  final Color? glowColor;
+  final Offset? offset;
+  final double? spreadRadius;
+  final double? blurRadius;
 
   bool get enable => onPressed != null;
 
@@ -64,14 +64,14 @@ class GlowButton extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          borderRadius: borderRadius ?? BorderRadius.circular(4),
+          borderRadius: borderRadius as BorderRadius? ?? BorderRadius.circular(4),
           splashColor: splashColor ?? theme.splashColor ?? Colors.transparent,
           onTap: onPressed,
           child: Container(
             alignment: Alignment.center,
             padding: padding ?? buttonTheme.padding,
             child: DefaultTextStyle(
-              style: Theme.of(context).textTheme.button,
+              style: Theme.of(context).textTheme.button!,
               child: child,
             ),
           ),
@@ -82,7 +82,7 @@ class GlowButton extends StatelessWidget {
 
   Color _buildButtonColor(BuildContext context) {
     return enable
-        ? color ?? Theme.of(context).buttonTheme.colorScheme.primary
-        : disableColor ?? Theme.of(context).buttonTheme.colorScheme.primary.withOpacity(0.4);
+        ? color ?? Theme.of(context).buttonTheme.colorScheme!.primary
+        : disableColor ?? Theme.of(context).buttonTheme.colorScheme!.primary.withOpacity(0.4);
   }
 }

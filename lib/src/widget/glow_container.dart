@@ -4,7 +4,7 @@ import '../../flutter_glow.dart';
 
 class GlowContainer extends StatelessWidget {
   const GlowContainer({
-    Key key,
+    Key? key,
     this.height,
     this.width,
     this.padding,
@@ -23,26 +23,26 @@ class GlowContainer extends StatelessWidget {
     this.child,
   }) : super(key: key);
 
-  final double height;
-  final double width;
-  final Color color;
-  final BorderRadiusGeometry borderRadius;
-  final AlignmentGeometry alignment;
-  final BoxBorder border;
-  final EdgeInsetsGeometry padding;
-  final EdgeInsetsGeometry margin;
-  final BoxShape shape;
-  final Widget child;
+  final double? height;
+  final double? width;
+  final Color? color;
+  final BorderRadiusGeometry? borderRadius;
+  final AlignmentGeometry? alignment;
+  final BoxBorder? border;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
+  final BoxShape? shape;
+  final Widget? child;
 
   //animation
-  final Duration animationDuration;
-  final Curve animationCurve;
+  final Duration? animationDuration;
+  final Curve? animationCurve;
 
   //glow properties
-  final Color glowColor;
-  final Offset offset;
-  final double spreadRadius;
-  final double blurRadius;
+  final Color? glowColor;
+  final Offset? offset;
+  final double? spreadRadius;
+  final double? blurRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -60,10 +60,10 @@ class GlowContainer extends StatelessWidget {
         borderRadius: borderRadius,
         boxShadow: [
           BoxShadow(
-            color: glowColor ?? glowTheme?.glowColor ?? kDefaultGlowTheme.glowColor,
-            offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset,
-            blurRadius: blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
-            spreadRadius: spreadRadius ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius,
+            color: glowColor ?? glowTheme?.glowColor ?? kDefaultGlowTheme.glowColor!,
+            offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset!,
+            blurRadius: blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!,
+            spreadRadius: spreadRadius ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius!,
           ),
         ],
         border: border,

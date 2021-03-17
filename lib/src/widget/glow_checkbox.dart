@@ -3,10 +3,10 @@ import 'package:flutter_glow/flutter_glow.dart';
 
 class GlowCheckbox extends StatelessWidget {
   const GlowCheckbox({
-    Key key,
+    Key? key,
     this.width,
     this.height,
-    @required this.value,
+    required this.value,
     this.enable = true,
     this.padding,
     this.margin,
@@ -16,7 +16,7 @@ class GlowCheckbox extends StatelessWidget {
     this.offset,
     this.spreadRadius,
     this.blurRadius,
-    @required this.onChange,
+    required this.onChange,
     this.checkColor,
     this.border,
     this.duration,
@@ -26,29 +26,29 @@ class GlowCheckbox extends StatelessWidget {
         assert(onChange != null),
         super(key: key);
 
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   final bool enable;
   final bool value;
   final Function(bool value) onChange;
-  final EdgeInsetsGeometry padding;
-  final EdgeInsetsGeometry margin;
-  final BoxBorder border;
-  final Color color;
-  final Color checkColor;
-  final Color disableColor;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
+  final BoxBorder? border;
+  final Color? color;
+  final Color? checkColor;
+  final Color? disableColor;
 
-  final IconData checkIcon;
+  final IconData? checkIcon;
 
   //animation
-  final Duration duration;
-  final Curve curve;
+  final Duration? duration;
+  final Curve? curve;
 
   //glow properties
-  final Color glowColor;
-  final Offset offset;
-  final double spreadRadius;
-  final double blurRadius;
+  final Color? glowColor;
+  final Offset? offset;
+  final double? spreadRadius;
+  final double? blurRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -87,9 +87,9 @@ class GlowCheckbox extends StatelessWidget {
     );
   }
 
-  Color buildGlowColor(GlowThemeData glowTheme, Color checkBoxColor) {
+  Color buildGlowColor(GlowThemeData? glowTheme, Color checkBoxColor) {
     return value && enable
-        ? glowColor ?? glowTheme?.glowColor ?? checkBoxColor ?? kDefaultGlowTheme.glowColor
+        ? glowColor ?? glowTheme?.glowColor ?? checkBoxColor ?? kDefaultGlowTheme.glowColor!
         : Colors.transparent;
   }
 

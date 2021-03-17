@@ -6,7 +6,7 @@ import '../../flutter_glow.dart';
 class GlowIcon extends Icon {
   const GlowIcon(
     this.icon, {
-    Key key,
+    Key? key,
     this.size,
     this.color,
     this.semanticLabel,
@@ -21,18 +21,18 @@ class GlowIcon extends Icon {
 
   final IconData icon;
 
-  final double size;
+  final double? size;
 
-  final Color color;
+  final Color? color;
 
-  final String semanticLabel;
+  final String? semanticLabel;
 
-  final TextDirection textDirection;
+  final TextDirection? textDirection;
 
   //glow properties
-  final Color glowColor;
-  final Offset offset;
-  final double blurRadius;
+  final Color? glowColor;
+  final Offset? offset;
+  final double? blurRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class GlowIcon extends Icon {
 
     final IconThemeData iconTheme = IconTheme.of(context);
 
-    final double iconSize = size ?? iconTheme.size;
+    final double? iconSize = size ?? iconTheme.size;
 
     if (icon == null) {
       return Semantics(
@@ -53,14 +53,14 @@ class GlowIcon extends Icon {
     final glowTheme = GlowTheme.of(context);
 
     final glowColorValue =
-        glowColor ?? glowTheme?.glowColor ?? color ?? kDefaultGlowTheme.glowColor;
-    final glowOffset = offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset;
+        glowColor ?? glowTheme?.glowColor ?? color ?? kDefaultGlowTheme.glowColor!;
+    final glowOffset = offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset!;
     final double glowBlurRadius =
-        blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius;
+        blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!;
 
-    final double iconOpacity = iconTheme.opacity;
-    Color iconColor = color ?? iconTheme.color;
-    if (iconOpacity != 1.0) iconColor = iconColor.withOpacity(iconColor.opacity * iconOpacity);
+    final double? iconOpacity = iconTheme.opacity;
+    Color? iconColor = color ?? iconTheme.color;
+    if (iconOpacity != 1.0) iconColor = iconColor!.withOpacity(iconColor.opacity * iconOpacity!);
 
     Widget iconWidget = RichText(
       overflow: TextOverflow.visible, // Never clip.

@@ -3,7 +3,7 @@ import 'package:flutter_glow/flutter_glow.dart';
 
 class GlowLineProgress extends StatelessWidget {
   const GlowLineProgress({
-    Key key,
+    Key? key,
     this.value,
     this.backgroundColor,
     this.valueColor,
@@ -15,23 +15,23 @@ class GlowLineProgress extends StatelessWidget {
     this.blurRadius,
   }) : super(key: key);
 
-  final double value;
-  final Color backgroundColor;
-  final Animation<Color> valueColor;
-  final String semanticsLabel;
-  final String semanticsValue;
+  final double? value;
+  final Color? backgroundColor;
+  final Animation<Color>? valueColor;
+  final String? semanticsLabel;
+  final String? semanticsValue;
 
   //glow properties
-  final Color glowColor;
-  final Offset offset;
-  final double spreadRadius;
-  final double blurRadius;
+  final Color? glowColor;
+  final Offset? offset;
+  final double? spreadRadius;
+  final double? blurRadius;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return GlowContainer(
-      glowColor: glowColor ?? valueColor ?? theme.accentColor,
+      glowColor: glowColor ?? valueColor as Color? ?? theme.accentColor,
       offset: offset,
       spreadRadius: spreadRadius,
       blurRadius: blurRadius,
