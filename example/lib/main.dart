@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -50,9 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             GlowButton(
-              child: Text('Glow'),
               onPressed: () {},
               color: flutterColor,
+              child: Text('Glow'),
             ),
             SizedBox(height: 32),
             GlowCheckbox(
