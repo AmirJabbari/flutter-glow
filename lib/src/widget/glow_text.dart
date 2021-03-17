@@ -22,11 +22,7 @@ class GlowText extends Text {
     this.glowColor,
     this.offset,
     this.blurRadius,
-  })  : assert(
-          data != null,
-          'A non-null String must be provided to a Text widget.',
-        ),
-        textSpan = null,
+  })  : textSpan = null,
         super(data, key: key);
 
   final String data;
@@ -104,7 +100,8 @@ class GlowText extends Text {
       text: TextSpan(
         style: effectiveTextStyle,
         text: data,
-        children: (textSpan != null ? <TextSpan?>[textSpan as TextSpan?] : null) as List<InlineSpan>?,
+        children:
+            (textSpan != null ? <TextSpan?>[(textSpan as TextSpan?)] : null) as List<InlineSpan>?,
       ),
     );
     if (semanticsLabel != null) {

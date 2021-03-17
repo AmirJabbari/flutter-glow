@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/foundation.dart';
 import 'theme.dart';
 import 'glow_theme_type.dart';
 

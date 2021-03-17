@@ -22,15 +22,13 @@ class GlowCheckbox extends StatelessWidget {
     this.duration,
     this.curve,
     this.checkIcon,
-  })  : assert(value != null),
-        assert(onChange != null),
-        super(key: key);
+  }) : super(key: key);
 
   final double? width;
   final double? height;
   final bool enable;
   final bool value;
-  final Function(bool value) onChange;
+  final Function(bool value)? onChange;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final BoxBorder? border;
@@ -61,7 +59,7 @@ class GlowCheckbox extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
-        if (onChange != null && enable) onChange(!value);
+        if (onChange != null && enable) onChange?.call(!value);
       },
       child: GlowContainer(
         width: width ?? 24,
@@ -89,12 +87,12 @@ class GlowCheckbox extends StatelessWidget {
 
   Color buildGlowColor(GlowThemeData? glowTheme, Color checkBoxColor) {
     return value && enable
-        ? glowColor ?? glowTheme?.glowColor ?? checkBoxColor ?? kDefaultGlowTheme.glowColor!
+        ? glowColor ?? glowTheme?.glowColor ?? checkBoxColor
         : Colors.transparent;
   }
 
   Color _buildCheckboxColor(BuildContext context) {
-    return enable ?? true
+    return enable
         ? color ?? Theme.of(context).toggleableActiveColor
         : disableColor ?? Theme.of(context).disabledColor;
   }

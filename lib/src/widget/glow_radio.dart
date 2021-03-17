@@ -3,6 +3,7 @@ import 'package:flutter_glow/flutter_glow.dart';
 
 class GlowRadio<T> extends StatelessWidget {
   GlowRadio({
+    Key? key,
     required this.value,
     required this.groupValue,
     required this.onChange,
@@ -22,11 +23,11 @@ class GlowRadio<T> extends StatelessWidget {
     this.spreadRadius,
     this.blurRadius,
     this.checkIcon,
-  });
+  }) : super(key: key);
 
   final T value;
   final T groupValue;
-  final ValueChanged<T> onChange;
+  final ValueChanged<T>? onChange;
   final Color? color;
 
   final IconData? checkIcon;
@@ -62,7 +63,7 @@ class GlowRadio<T> extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        if (onChange != null && enable) onChange(value);
+        if (onChange != null && enable) onChange?.call(value);
       },
       child: GlowContainer(
         width: width ?? 24,
@@ -86,13 +87,13 @@ class GlowRadio<T> extends StatelessWidget {
   }
 
   Color buildGlowColor(GlowThemeData? glowTheme, Color checkBoxColor) {
-    return checked && (enable ?? true)
-        ? glowColor ?? glowTheme?.glowColor ?? checkBoxColor ?? kDefaultGlowTheme.glowColor!
+    return checked && enable
+        ? glowColor ?? glowTheme?.glowColor ?? checkBoxColor
         : Colors.transparent;
   }
 
   Color _buildCheckboxColor(BuildContext context) {
-    return enable ?? true
+    return enable
         ? color ?? Theme.of(context).toggleableActiveColor
         : disableColor ?? Theme.of(context).disabledColor;
   }

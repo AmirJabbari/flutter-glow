@@ -30,7 +30,7 @@ class GlowButton extends StatelessWidget {
   final Widget child;
   final BorderRadiusGeometry? borderRadius;
   final BoxBorder? border;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   //glow properties
   final Color? glowColor;
@@ -56,7 +56,7 @@ class GlowButton extends StatelessWidget {
       width: width ?? buttonTheme.minWidth,
       color: buttonColor,
       borderRadius: borderRadius ?? BorderRadius.circular(4),
-      glowColor: glowColor ?? glowTheme?.glowColor ?? buttonColor ?? kDefaultGlowTheme.glowColor,
+      glowColor: glowColor ?? glowTheme?.glowColor ?? buttonColor,
       offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset,
       blurRadius: blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
       spreadRadius: spreadRadius ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius,
@@ -65,7 +65,7 @@ class GlowButton extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: borderRadius as BorderRadius? ?? BorderRadius.circular(4),
-          splashColor: splashColor ?? theme.splashColor ?? Colors.transparent,
+          splashColor: splashColor ?? theme.splashColor,
           onTap: onPressed,
           child: Container(
             alignment: Alignment.center,

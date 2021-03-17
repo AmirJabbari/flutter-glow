@@ -14,12 +14,9 @@ class GlowIcon extends Icon {
     this.glowColor,
     this.offset,
     this.blurRadius,
-  }) : super(
-          icon,
-          key: key,
-        );
+  }) : super(icon, key: key);
 
-  final IconData icon;
+  final IconData? icon;
 
   final double? size;
 
@@ -48,69 +45,69 @@ class GlowIcon extends Icon {
         label: semanticLabel,
         child: SizedBox(width: iconSize, height: iconSize),
       );
-    }
+    } else {
+      final glowTheme = GlowTheme.of(context);
 
-    final glowTheme = GlowTheme.of(context);
+      final glowColorValue =
+          glowColor ?? glowTheme?.glowColor ?? color ?? kDefaultGlowTheme.glowColor!;
+      final glowOffset = offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset!;
+      final double glowBlurRadius =
+          blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!;
 
-    final glowColorValue =
-        glowColor ?? glowTheme?.glowColor ?? color ?? kDefaultGlowTheme.glowColor!;
-    final glowOffset = offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset!;
-    final double glowBlurRadius =
-        blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!;
+      final double? iconOpacity = iconTheme.opacity;
+      Color? iconColor = color ?? iconTheme.color;
+      if (iconOpacity != 1.0) iconColor = iconColor!.withOpacity(iconColor.opacity * iconOpacity!);
 
-    final double? iconOpacity = iconTheme.opacity;
-    Color? iconColor = color ?? iconTheme.color;
-    if (iconOpacity != 1.0) iconColor = iconColor!.withOpacity(iconColor.opacity * iconOpacity!);
-
-    Widget iconWidget = RichText(
-      overflow: TextOverflow.visible, // Never clip.
-      textDirection: textDirection, // Since we already fetched it for the assert...
-      text: TextSpan(
-        text: String.fromCharCode(icon.codePoint),
-        style: TextStyle(
-          inherit: false,
-          color: iconColor,
-          fontSize: iconSize,
-          fontFamily: icon.fontFamily,
-          shadows: [
-            Shadow(
-              color: glowColorValue,
-              offset: glowOffset,
-              blurRadius: glowBlurRadius * 2,
-            )
-          ],
-          package: icon.fontPackage,
-        ),
-      ),
-    );
-
-    if (icon.matchTextDirection) {
-      switch (textDirection) {
-        case TextDirection.rtl:
-          iconWidget = Transform(
-            transform: Matrix4.identity()..scale(-1.0, 1.0, 1.0),
-            alignment: Alignment.center,
-            transformHitTests: false,
-            child: iconWidget,
-          );
-          break;
-        case TextDirection.ltr:
-          break;
-      }
-    }
-
-    return Semantics(
-      label: semanticLabel,
-      child: ExcludeSemantics(
-        child: SizedBox(
-          width: iconSize,
-          height: iconSize,
-          child: Center(
-            child: iconWidget,
+      Widget iconWidget = RichText(
+        overflow: TextOverflow.visible, // Never clip.
+        textDirection: textDirection, // Since we already fetched it for the assert...
+        text: TextSpan(
+          text: String.fromCharCode(icon!.codePoint),
+          style: TextStyle(
+            inherit: false,
+            color: iconColor,
+            fontSize: iconSize,
+            fontFamily: icon!.fontFamily,
+            shadows: [
+              Shadow(
+                color: glowColorValue,
+                offset: glowOffset,
+                blurRadius: glowBlurRadius * 2,
+              )
+            ],
+            package: icon!.fontPackage,
           ),
         ),
-      ),
-    );
+      );
+
+      if (icon!.matchTextDirection) {
+        switch (textDirection) {
+          case TextDirection.rtl:
+            iconWidget = Transform(
+              transform: Matrix4.identity()..scale(-1.0, 1.0, 1.0),
+              alignment: Alignment.center,
+              transformHitTests: false,
+              child: iconWidget,
+            );
+            break;
+          case TextDirection.ltr:
+            break;
+        }
+      }
+
+      return Semantics(
+        label: semanticLabel,
+        child: ExcludeSemantics(
+          child: SizedBox(
+            width: iconSize,
+            height: iconSize,
+            child: Center(
+              child: iconWidget,
+            ),
+          ),
+        ),
+      );
+    }
   }
 
   @override

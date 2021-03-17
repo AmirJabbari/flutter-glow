@@ -17,7 +17,7 @@ class GlowSwitch extends StatefulWidget {
   }) : super(key: key);
 
   final bool value;
-  final ValueChanged<bool> onChanged;
+  final ValueChanged<bool>? onChanged;
   final Color? activeColor;
   final DragStartBehavior? dragStartBehavior;
 

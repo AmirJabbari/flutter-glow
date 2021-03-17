@@ -9,7 +9,7 @@ class GlowThemeInherited extends InheritedWidget {
     required Widget child,
     required this.value,
     required this.onChange,
-  })  : assert(child != null),
+  })  :
         super(key: key, child: child);
 
   final GlowThemeHandler? value;
