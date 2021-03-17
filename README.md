@@ -8,7 +8,7 @@
 for install this package add package to your pubspec.yaml file:
 ```yaml
 dependencies:
-  flutter_glow: ^0.1.2
+  flutter_glow: ^0.2.0
 ```
 run `flutter pub get` to download package. also, import the package in your file:
 ```dart

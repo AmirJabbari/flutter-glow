@@ -1,3 +1,10 @@
+## [0.2.0] - Migrate with Null-safety.
+* package dart version upgraded to 2.12.0
+* package and example migrated with null-safety
+* example now can run on web
+* static analysis added to project
+* code reformatted
+
 ## [0.1.2] - Description changed.
 * packaged description updated
 
