@@ -3,9 +3,9 @@ import 'package:flutter_glow/flutter_glow.dart';
 
 class GlowRadio<T> extends StatelessWidget {
   GlowRadio({
-    @required this.value,
-    @required this.groupValue,
-    @required this.onChange,
+    required this.value,
+    required this.groupValue,
+    required this.onChange,
     this.color,
     this.glowColor,
     this.width,
@@ -27,28 +27,28 @@ class GlowRadio<T> extends StatelessWidget {
   final T value;
   final T groupValue;
   final ValueChanged<T> onChange;
-  final Color color;
+  final Color? color;
 
-  final IconData checkIcon;
+  final IconData? checkIcon;
 
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   final bool enable;
-  final EdgeInsetsGeometry padding;
-  final EdgeInsetsGeometry margin;
-  final BoxBorder border;
-  final Color checkColor;
-  final Color disableColor;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
+  final BoxBorder? border;
+  final Color? checkColor;
+  final Color? disableColor;
 
   //animation
-  final Duration duration;
-  final Curve curve;
+  final Duration? duration;
+  final Curve? curve;
 
   //glow properties
-  final Color glowColor;
-  final Offset offset;
-  final double spreadRadius;
-  final double blurRadius;
+  final Color? glowColor;
+  final Offset? offset;
+  final double? spreadRadius;
+  final double? blurRadius;
 
   bool get checked => value == groupValue;
 
@@ -85,9 +85,9 @@ class GlowRadio<T> extends StatelessWidget {
     );
   }
 
-  Color buildGlowColor(GlowThemeData glowTheme, Color checkBoxColor) {
+  Color buildGlowColor(GlowThemeData? glowTheme, Color checkBoxColor) {
     return checked && (enable ?? true)
-        ? glowColor ?? glowTheme?.glowColor ?? checkBoxColor ?? kDefaultGlowTheme.glowColor
+        ? glowColor ?? glowTheme?.glowColor ?? checkBoxColor ?? kDefaultGlowTheme.glowColor!
         : Colors.transparent;
   }
 

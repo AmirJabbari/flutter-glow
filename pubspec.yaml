@@ -7,7 +7,7 @@ issue_tracker: https://github.com/payam-zahedi/flutter-glow/issues
 homepage: https://github.com/payam-zahedi/flutter-glow
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:

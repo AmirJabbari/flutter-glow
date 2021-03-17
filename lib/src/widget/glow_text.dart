@@ -7,7 +7,7 @@ import '../../flutter_glow.dart';
 class GlowText extends Text {
   const GlowText(
     this.data, {
-    Key key,
+    Key? key,
     this.style,
     this.strutStyle,
     this.textAlign,
@@ -31,53 +31,53 @@ class GlowText extends Text {
 
   final String data;
 
-  final InlineSpan textSpan;
+  final InlineSpan? textSpan;
 
-  final TextStyle style;
+  final TextStyle? style;
 
-  final StrutStyle strutStyle;
+  final StrutStyle? strutStyle;
 
-  final TextAlign textAlign;
+  final TextAlign? textAlign;
 
-  final TextDirection textDirection;
+  final TextDirection? textDirection;
 
-  final Locale locale;
+  final Locale? locale;
 
-  final bool softWrap;
+  final bool? softWrap;
 
-  final TextOverflow overflow;
+  final TextOverflow? overflow;
 
-  final double textScaleFactor;
+  final double? textScaleFactor;
 
-  final int maxLines;
+  final int? maxLines;
 
-  final String semanticsLabel;
+  final String? semanticsLabel;
 
-  final TextWidthBasis textWidthBasis;
+  final TextWidthBasis? textWidthBasis;
 
   //glow properties
-  final Color glowColor;
-  final Offset offset;
-  final double blurRadius;
+  final Color? glowColor;
+  final Offset? offset;
+  final double? blurRadius;
 
   @override
   Widget build(BuildContext context) {
     final glowTheme = GlowTheme.of(context); // getting glow theme
     final DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(context);
-    TextStyle effectiveTextStyle = style;
-    if (style == null || style.inherit) effectiveTextStyle = defaultTextStyle.style.merge(style);
-    if (style == null || style.inherit) effectiveTextStyle = defaultTextStyle.style.merge(style);
+    TextStyle? effectiveTextStyle = style;
+    if (style == null || style!.inherit) effectiveTextStyle = defaultTextStyle.style.merge(style);
+    if (style == null || style!.inherit) effectiveTextStyle = defaultTextStyle.style.merge(style);
     if (MediaQuery.boldTextOverride(context))
-      effectiveTextStyle = effectiveTextStyle.merge(const TextStyle(fontWeight: FontWeight.bold));
+      effectiveTextStyle = effectiveTextStyle!.merge(const TextStyle(fontWeight: FontWeight.bold));
 
     final glowColorValue = glowColor ??
         glowTheme?.glowColor ??
-        effectiveTextStyle.color ??
-        kDefaultGlowTheme.glowColor;
-    final glowOffset = offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset;
+        effectiveTextStyle!.color ??
+        kDefaultGlowTheme.glowColor!;
+    final glowOffset = offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset!;
     final double glowBlurRadius =
-        blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius;
-    effectiveTextStyle = effectiveTextStyle.merge(
+        blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!;
+    effectiveTextStyle = effectiveTextStyle!.merge(
       TextStyle(
         shadows: [
           Shadow(
@@ -104,7 +104,7 @@ class GlowText extends Text {
       text: TextSpan(
         style: effectiveTextStyle,
         text: data,
-        children: textSpan != null ? <TextSpan>[textSpan] : null,
+        children: (textSpan != null ? <TextSpan?>[textSpan as TextSpan?] : null) as List<InlineSpan>?,
       ),
     );
     if (semanticsLabel != null) {
@@ -125,7 +125,7 @@ class GlowText extends Text {
     properties.add(StringProperty('data', data, showName: false));
     if (textSpan != null) {
       properties.add(
-          textSpan.toDiagnosticsNode(name: 'textSpan', style: DiagnosticsTreeStyle.transition));
+          textSpan!.toDiagnosticsNode(name: 'textSpan', style: DiagnosticsTreeStyle.transition));
     }
     style?.debugFillProperties(properties);
     properties.add(EnumProperty<TextAlign>('textAlign', textAlign, defaultValue: null));

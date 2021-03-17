@@ -9,14 +9,14 @@ export 'glow_theme_type.dart';
 
 class GlowThemeHandler {
   GlowThemeHandler({
-    @required this.theme,
+    required this.theme,
     this.darkTheme,
     this.themeType = GlowThemeType.system,
   });
 
-  final GlowThemeData theme;
-  final GlowThemeData darkTheme;
-  final GlowThemeType themeType;
+  final GlowThemeData? theme;
+  final GlowThemeData? darkTheme;
+  final GlowThemeType? themeType;
 
   bool get useDark =>
       darkTheme != null &&
@@ -26,7 +26,7 @@ class GlowThemeHandler {
               // If the platform has no preference, platformBrightness defaults to Brightness.light.
               window.platformBrightness == Brightness.dark);
 
-  GlowThemeData get current {
+  GlowThemeData? get current {
     if (useDark) {
       return darkTheme;
     } else {
@@ -47,9 +47,9 @@ class GlowThemeHandler {
   int get hashCode => theme.hashCode ^ darkTheme.hashCode ^ themeType.hashCode;
 
   GlowThemeHandler copyWith({
-    GlowThemeData theme,
-    GlowThemeData darkTheme,
-    GlowThemeType themeType,
+    GlowThemeData? theme,
+    GlowThemeData? darkTheme,
+    GlowThemeType? themeType,
   }) =>
       GlowThemeHandler(
         theme: theme ?? this.theme,

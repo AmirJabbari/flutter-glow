@@ -9,23 +9,23 @@ class GlowThemeData {
     this.blurRadius,
   });
 
-  factory GlowThemeData.fromBoxShadow({BoxShadow boxShadow}) => GlowThemeData(
+  factory GlowThemeData.fromBoxShadow({required BoxShadow boxShadow}) => GlowThemeData(
         glowColor: boxShadow.color,
         offset: boxShadow.offset,
         spreadRadius: boxShadow.spreadRadius,
         blurRadius: boxShadow.blurRadius,
       );
 
-  final Color glowColor;
-  final Offset offset;
-  final double spreadRadius;
-  final double blurRadius;
+  final Color? glowColor;
+  final Offset? offset;
+  final double? spreadRadius;
+  final double? blurRadius;
 
   GlowThemeData copyWith({
-    Color glowColor,
-    Offset offset,
-    double spreadRadius,
-    double blurRadius,
+    Color? glowColor,
+    Offset? offset,
+    double? spreadRadius,
+    double? blurRadius,
   }) =>
       GlowThemeData(
         glowColor: glowColor ?? glowColor,
@@ -35,7 +35,7 @@ class GlowThemeData {
       );
 
   GlowThemeData copyFrom({
-    GlowThemeData other,
+    required GlowThemeData other,
   }) =>
       GlowThemeData(
         glowColor: other.glowColor ?? this.glowColor,
