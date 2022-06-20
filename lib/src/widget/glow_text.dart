@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../flutter_glow.dart';
+import '../../flutter_glow.dart'; //fix this import
 
 class GlowText extends Text {
   const GlowText(
