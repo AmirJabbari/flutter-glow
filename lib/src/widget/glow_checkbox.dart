@@ -69,8 +69,11 @@ class GlowCheckbox extends StatelessWidget {
         color: value ? checkBoxColor : checkBoxColor.withOpacity(0),
         glowColor: buildGlowColor(glowTheme, checkBoxColor),
         offset: offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset,
-        blurRadius: blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
-        spreadRadius: spreadRadius ?? glowTheme?.spreadRadius ?? kDefaultGlowTheme.spreadRadius,
+        blurRadius:
+            blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius,
+        spreadRadius: spreadRadius ??
+            glowTheme?.spreadRadius ??
+            kDefaultGlowTheme.spreadRadius,
         shape: BoxShape.circle,
         animationDuration: duration ?? const Duration(milliseconds: 200),
         animationCurve: curve,
@@ -93,7 +96,7 @@ class GlowCheckbox extends StatelessWidget {
 
   Color _buildCheckboxColor(BuildContext context) {
     return enable
-        ? color ?? Theme.of(context).toggleableActiveColor
+        ? color ?? Theme.of(context).colorScheme.secondary
         : disableColor ?? Theme.of(context).disabledColor;
   }
 }

@@ -70,7 +70,7 @@ class GlowButton extends StatelessWidget {
             alignment: Alignment.center,
             padding: padding ?? buttonTheme.padding,
             child: DefaultTextStyle(
-              style: Theme.of(context).textTheme.button!,
+              style: Theme.of(context).textTheme.labelLarge!,
               child: child,
             ),
           ),
