@@ -1,3 +1,7 @@
+## [0.3.0] - Upgrade flutter version.
+* Upgrade flutter Version to 3.7.10
+* fixed [#6](https://github.com/payam-zahedi/flutter-glow/issues/6)
+
 ## [0.2.0] - Migrate with Null-safety.
 * package dart version upgraded to 2.12.0
 * package and example migrated with null-safety
