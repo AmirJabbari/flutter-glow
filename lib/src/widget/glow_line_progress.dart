@@ -31,7 +31,8 @@ class GlowLineProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return GlowContainer(
-      glowColor: glowColor ?? valueColor as Color? ?? theme.accentColor,
+      glowColor:
+          glowColor ?? valueColor as Color? ?? theme.colorScheme.secondary,
       offset: offset,
       spreadRadius: spreadRadius,
       blurRadius: blurRadius,

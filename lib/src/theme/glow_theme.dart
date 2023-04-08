@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'glow_theme_inherited.dart';
-import 'theme.dart';
 import 'theme_handler.dart';
-import 'glow_theme_type.dart';
 
 export 'theme.dart';
 export 'theme_handler.dart';

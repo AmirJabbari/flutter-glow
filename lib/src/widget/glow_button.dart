@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/src/widget/glow_container.dart';
 import '../theme/glow_theme.dart';
-import '../theme/theme.dart';
 
 class GlowButton extends StatelessWidget {
   const GlowButton({
