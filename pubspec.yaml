@@ -1,10 +1,10 @@
 name: flutter_glow
-version: 0.3.2
-description: A package for adding glow effects to text and widgets in Flutter.
-
-repository: https://github.com/yourusername/flutter-glow-fixed
-issue_tracker: https://github.com/yourusername/flutter-glow-fixed/issues
-homepage: https://github.com/yourusername/flutter-glow-fixed
+description: complete and easy to use flutter glow ui kit that help you to create and use glow widgets.
+  also you can create your own GlowTheme.
+version: 0.3.1
+repository: https://github.com/payam-zahedi/flutter-glow
+issue_tracker: https://github.com/payam-zahedi/flutter-glow/issues
+homepage: https://github.com/payam-zahedi/flutter-glow
 
 environment:
   sdk: '>=3.3.4 <4.0.0'
