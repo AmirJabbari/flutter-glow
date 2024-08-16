@@ -64,27 +64,34 @@ class GlowText extends Text {
   @override
   final TextWidthBasis? textWidthBasis;
 
-  //glow properties
+  // Glow properties
   final Color? glowColor;
   final Offset? offset;
   final double? blurRadius;
 
   @override
   Widget build(BuildContext context) {
-    final glowTheme = GlowTheme.of(context); // getting glow theme
+    final glowTheme = GlowTheme.of(context); // Getting glow theme
     final defaultTextStyle = DefaultTextStyle.of(context);
     var effectiveTextStyle = style;
-    if (style == null || style!.inherit) effectiveTextStyle = defaultTextStyle.style.merge(style);
-    if (style == null || style!.inherit) effectiveTextStyle = defaultTextStyle.style.merge(style);
-    if (MediaQuery.boldTextOf(context)) {
+
+    // Merge style if not provided
+    if (style == null || style!.inherit) {
+      effectiveTextStyle = defaultTextStyle.style.merge(style);
+    }
+
+    // Use updated method for bold text
+    if (MediaQuery.of(context).boldText) {
       effectiveTextStyle = effectiveTextStyle!.merge(const TextStyle(fontWeight: FontWeight.bold));
     }
+
     final glowColorValue = glowColor ??
         glowTheme?.glowColor ??
         effectiveTextStyle!.color ??
         kDefaultGlowTheme.glowColor!;
     final glowOffset = offset ?? glowTheme?.offset ?? kDefaultGlowTheme.offset!;
     final glowBlurRadius = blurRadius ?? glowTheme?.blurRadius ?? kDefaultGlowTheme.blurRadius!;
+
     effectiveTextStyle = effectiveTextStyle!.merge(
       TextStyle(
         shadows: [
@@ -102,7 +109,7 @@ class GlowText extends Text {
       textDirection: textDirection,
       // RichText uses Directionality.of to obtain a default if this is null.
       locale: locale,
-      // RichText uses Localizations.localeOf to obtain a default if this is null
+      // RichText uses Localizations.localeOf to obtain a default if this is null.
       softWrap: softWrap ?? defaultTextStyle.softWrap,
       overflow: overflow ?? defaultTextStyle.overflow,
       textScaleFactor: textScaleFactor ?? MediaQuery.textScaleFactorOf(context),
@@ -116,6 +123,7 @@ class GlowText extends Text {
             (textSpan != null ? <TextSpan?>[(textSpan as TextSpan?)] : null) as List<InlineSpan>?,
       ),
     );
+
     if (semanticsLabel != null) {
       result = Semantics(
         textDirection: textDirection,
@@ -125,6 +133,7 @@ class GlowText extends Text {
         ),
       );
     }
+
     return result;
   }
 
