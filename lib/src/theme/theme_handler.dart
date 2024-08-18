@@ -23,7 +23,8 @@ class GlowThemeHandler {
           themeType == GlowThemeType.dark ||
               //The setting indicating the current brightness mode of the host platform.
               // If the platform has no preference, platformBrightness defaults to Brightness.light.
-              window.platformBrightness == Brightness.dark);
+              window.platformBrightness == Brightness.dark,
+      );
 
   GlowThemeData? get current {
     if (useDark) {
