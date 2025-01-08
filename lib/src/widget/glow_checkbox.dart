@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 
 class GlowCheckbox extends StatelessWidget {
-  const GlowCheckbox({
-    Key? key,
-    this.width,
-    this.height,
-    required this.value,
-    this.enable = true,
-    this.padding,
-    this.margin,
-    this.color,
-    this.disableColor,
-    this.glowColor,
-    this.offset,
-    this.spreadRadius,
-    this.blurRadius,
-    required this.onChange,
-    this.checkColor,
-    this.border,
-    this.duration,
-    this.curve,
-    this.checkIcon,
-  }) : super(key: key);
+  const GlowCheckbox(
+      {super.key,
+      this.width,
+      this.height,
+      required this.value,
+      this.enable = true,
+      this.padding,
+      this.margin,
+      this.color,
+      this.disableColor,
+      this.glowColor,
+      this.offset,
+      this.spreadRadius,
+      this.blurRadius,
+      required this.onChange,
+      this.checkColor,
+      this.border,
+      this.duration,
+      this.curve,
+      this.checkIcon,
+      this.shape});
 
   final double? width;
   final double? height;
@@ -48,6 +48,8 @@ class GlowCheckbox extends StatelessWidget {
   final double? spreadRadius;
   final double? blurRadius;
 
+  //shape
+  final BoxShape? shape;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -74,7 +76,7 @@ class GlowCheckbox extends StatelessWidget {
         spreadRadius: spreadRadius ??
             glowTheme?.spreadRadius ??
             kDefaultGlowTheme.spreadRadius,
-        shape: BoxShape.circle,
+        shape: shape ?? BoxShape.circle,
         animationDuration: duration ?? const Duration(milliseconds: 200),
         animationCurve: curve,
         child: value
